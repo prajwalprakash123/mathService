@@ -1,6 +1,7 @@
 package prajwal.maths;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,5 +17,10 @@ public class Controller {
         Result result = mathService.doAddition(no1, no2);
         return result;
 
+    }
+
+    @GetMapping("/test")
+    public String test(){
+        return " HEALTH CHECK SUCCEEDED !!";
     }
 }
