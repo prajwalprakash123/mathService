@@ -1,15 +1,19 @@
 version: 0.2
 
+env:
+  secrets-manager:
+    DOCKERHUB_PASS: "/dockerhub/credentials:password"
+    DOCKERHUB_USERNAME: "/dockerhub/credentials:username"
 phases:
   pre_build:
     commands:
+      - docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=066959092968.dkr.ecr.us-east-2.amazonaws.com/mathservice
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
-      - $ sudo docker login -u="${prajwalprakash123}" -p="${India@1947}"
 
   install:
     runtime-versions:
