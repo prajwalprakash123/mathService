@@ -1,0 +1,29 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "MathServiceContainer",
+      "image": "066959092968.dkr.ecr.us-east-2.amazonaws.com/mathservice:latest",
+      "memory": 128,
+      "cpu": 100,
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "protocol": "tcp",
+          "containerPort": 8080
+        }
+      ]
+    }
+  ],
+  "family": "NewMathServiceTask",
+  "compatibilities": [
+    "EXTERNAL",
+    "EC2"
+  ],
+  "requiresCompatibilities":[
+    "EC2"
+  ],
+  "networkMode":null,
+  "cpu":"256",
+  "memory":"256"
+}
