@@ -21,6 +21,6 @@ public class Controller {
 
     @GetMapping("/test")
     public String test(){
-        return " HEALTH CHECK SUCCEEDED ! ! !";
+        return " HEALTH CHECK SUCCEEDED ! ! ! !";
     }
 }
